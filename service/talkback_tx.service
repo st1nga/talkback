@@ -1,0 +1,14 @@
+[Unit]
+Description=talkback_tx
+After=network-online.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/local/bin/openob redis obdave_tb_11 obdave_tb_11 tx tantive -b 256 -ajack --jack_name obdave_tb_11 --jack_port_pattern system:capture -p 4146
+Restart=always
+RestartSec=5
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target

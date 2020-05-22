@@ -1,0 +1,14 @@
+[Unit]
+Description=talkback_rx
+After=network-online.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/local/bin/openob redis obdave_tb_00 obdave_tb_00 rx -ajack --jack_name obdave_tb_00 --jack_port_pattern system:playback
+Restart=always
+RestartSec=5
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target
